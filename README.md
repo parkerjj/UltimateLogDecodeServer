@@ -1,13 +1,15 @@
-HelloWorld for App Engine Standard (Java 8)
+Java version Tencent Mars XLog Decoder for UltimateLog
 ============================
 
-This sample demonstrates how to deploy an application on Google App Engine.
+This project has deploy an application on Google App Engine.
+Direct Link: http://www.baiduyaowan.com
 
-See the [Google App Engine standard environment documentation][ae-docs] for more
-detailed instructions.
 
-[ae-docs]: https://cloud.google.com/appengine/docs/java/
 
+##UltimateLog
+
+
+# How to Deploy it on your own Server
 
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](https://maven.apache.org/download.cgi) (at least 3.5)
