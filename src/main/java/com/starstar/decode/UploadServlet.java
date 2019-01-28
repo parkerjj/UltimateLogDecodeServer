@@ -81,11 +81,11 @@ public class UploadServlet extends HttpServlet {
                 }
             }
         } catch (FileUploadException ex) {
-            response.getWriter().write("File Upload Error.");
+            response.getWriter().write("File Upload Error." + ex.toString());
             throw new ServletException(ex);
         } catch (Exception ex) {
-            response.getWriter().write("Error.");
-            ex.printStackTrace(System.out);
+            response.getWriter().write("Unknown Error." + ex.toString());
+            ex.printStackTrace();
             throw new ServletException(ex);
         }
 
@@ -94,14 +94,15 @@ public class UploadServlet extends HttpServlet {
             try {
                 outputString = XlogFileDecoder.ParseBytes(xlogByte);
             }catch (Exception e){
-                response.getWriter().write("XLog unzip error. Please check again.");
+                response.getWriter().write("XLog unzip error. Please check again."  + e.toString());
             }
 
             try {
                 String decryptStr = DecryptUtility.encryptFile(outputString, encryptKey);
+                decryptStr = decryptStr.replace("\n" , "\n</br>");
                 response.getWriter().write(decryptStr);
             }catch (Exception excption){
-                response.getWriter().write("Seed May Error.");
+                response.getWriter().write("Seed May Error." + excption.toString());
             }
         }else {
             response.getWriter().write("XLog is empty.");

@@ -33,14 +33,14 @@ public class DecryptUtility {
                 int rangeStart  = line.indexOf("[[[")+3;
                 int rangeEnd    = line.indexOf("]]]");
                 if (rangeStart == 0 || rangeStart > rangeEnd){
-                    stringBuffer.append(line + "\n<br>");
+                    stringBuffer.append(line + "\n</br>");
                     continue;
                 }
                 String encryptStr = line.substring(line.indexOf("[[[")+3, line.indexOf("]]]"));
                 String decryptStr = AESEncryptor.decryptWithKey(encryptStr, key);
 
                 stringBuffer.append(line.substring(0, line.indexOf("[[[")));
-                stringBuffer.append(decryptStr + "\n<br>");
+                stringBuffer.append(decryptStr + "\n</br>");
 
 
             }

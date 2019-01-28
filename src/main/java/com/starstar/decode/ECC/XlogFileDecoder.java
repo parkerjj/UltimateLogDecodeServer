@@ -189,7 +189,7 @@ public class XlogFileDecoder {
         int startpos = GetLogStartPos(_inputBytes, 2);
 
         if (-1 == startpos){
-            return "Error";
+            return new String(_inputBytes);
         }
 
         StringBuffer outbuffer = new StringBuffer();
