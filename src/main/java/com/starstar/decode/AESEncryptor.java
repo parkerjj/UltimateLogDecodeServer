@@ -67,7 +67,7 @@ public class AESEncryptor {
             byte[] originEncrypted = Base64.decodeBase64(encrypted);
             byte[] original = cipher.doFinal(originEncrypted);
 
-            return new String(original);
+            return new String(original, StandardCharsets.UTF_8);
         } catch (Exception ex) {
 
         }

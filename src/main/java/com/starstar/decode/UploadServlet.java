@@ -42,6 +42,11 @@ public class UploadServlet extends HttpServlet {
         }
 
 
+        response.setHeader("Content-type", "text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        response.getWriter().write("<html><body>");
+
 
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(MAX_MEMORY_SIZE);
@@ -107,6 +112,9 @@ public class UploadServlet extends HttpServlet {
         }else {
             response.getWriter().write("XLog is empty.");
         }
+
+
+        response.getWriter().write("</body></html>");
 
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().flush();
