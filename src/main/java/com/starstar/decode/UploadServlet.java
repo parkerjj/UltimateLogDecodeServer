@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.starstar.decode.ECC.XlogFileDecoder;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -28,8 +29,8 @@ public class UploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private static final String DATA_DIRECTORY = "data";
-    private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
-    private static final int MAX_REQUEST_SIZE = 1024 * 1024;
+    private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 20 * 2;
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 20;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
