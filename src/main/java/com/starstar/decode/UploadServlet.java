@@ -43,10 +43,9 @@ public class UploadServlet extends HttpServlet {
         }
 
 
-        response.setHeader("Content-type", "text/html;charset=UTF-8");
+        response.setHeader("Content-type", "application/octet-stream");
         response.setCharacterEncoding("UTF-8");
-
-        response.getWriter().write("<html><body>");
+        response.setContentType("application/octet-stream");//设置文件类型
 
 
         DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -105,7 +104,6 @@ public class UploadServlet extends HttpServlet {
 
             try {
                 String decryptStr = DecryptUtility.encryptFile(outputString, encryptKey);
-                decryptStr = decryptStr.replace("\n" , "\n</br>");
                 response.getWriter().write(decryptStr);
             }catch (Exception excption){
                 response.getWriter().write("Seed May Error." + excption.toString());
@@ -113,9 +111,6 @@ public class UploadServlet extends HttpServlet {
         }else {
             response.getWriter().write("XLog is empty.");
         }
-
-
-        response.getWriter().write("</body></html>");
 
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().flush();
